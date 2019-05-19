@@ -1,0 +1,5 @@
+# Securipi
+
+```sh
+cargo run
+```
