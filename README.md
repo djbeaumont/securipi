@@ -13,6 +13,11 @@ Then run `rustup` to install the latest version of the rust toolchain and start 
 
 ### Installing dependencies and running the application
 
+Copy the example .env file and provide values for your twilio account:
+```sh
+cp .env.example .env
+```
+
 **Warning, the first compile takes hours on a pi**
 
 ```sh
