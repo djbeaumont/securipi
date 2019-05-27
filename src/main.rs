@@ -20,10 +20,20 @@ fn send_msg(message: &str) {
 fn main() {
     dotenv().ok();
 
-    let switch = DigitalInputDevice::new(23);
+    let mut switch = DigitalInputDevice::new(23);
+    let initial_state = switch.is_active();
 
-    let is_closed = switch.is_active();
-    let message = format!("Door is {}", if is_closed { "closed" } else { "open" });
+    let mut current_state = initial_state;
+    loop {
+        if current_state {
+            switch.wait_for_inactive(None);
+        } else {
+            switch.wait_for_active(None);
+        }
 
-    send_msg(&message);
+        current_state = switch.is_active();
+        let message = format!("Door is {}", if current_state { "closed" } else { "open" });
+
+        send_msg(&message);
+    }
 }
