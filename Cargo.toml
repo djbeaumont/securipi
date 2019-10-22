@@ -6,6 +6,6 @@ edition = "2018"
 license = "MIT"
 
 [dependencies]
-dotenv = "0.14.1"
+dotenv = "0.15.0"
 twilio = "0.1.2"
 rust_gpiozero = "0.2.0"
